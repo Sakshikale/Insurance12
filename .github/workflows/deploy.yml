@@ -53,30 +53,55 @@ jobs:
       - name: Deploy Snowflake objects
         run: |
           snow sql --connection ci \
-            --filename sql/01_create_objects.sql
+            --filename sql/BR_CLAIMS.sql
  
-      - name: Suspend existing tasks if present
-        run: |
-          snow sql --connection ci --query \
-            "ALTER TASK IF EXISTS RETAIL_DB.RAW.TRANSFORM_SALES_TASK SUSPEND;"
- 
-          snow sql --connection ci --query \
-            "ALTER TASK IF EXISTS RETAIL_DB.RAW.LOAD_SALES_TASK SUSPEND;"
- 
-      - name: Deploy load task
+      - name: Deploy Snowflake objects
         run: |
           snow sql --connection ci \
-            --filename sql/02_create_load_task.sql
- 
-      - name: Deploy transformation task
+            --filename sql/BR_CUSTOMERS.sql
+
+      - name: Deploy Snowflake objects
         run: |
           snow sql --connection ci \
-            --filename sql/03_create_transform_task.sql
- 
-      - name: Resume scheduled tasks
+            --filename sql/BR_POLICIES.sql
+
+      - name: Deploy Snowflake objects
         run: |
-          snow sql --connection ci --query \
-            "ALTER TASK RETAIL_DB.RAW.TRANSFORM_SALES_TASK RESUME;"
- 
-          snow sql --connection ci --query \
-            "ALTER TASK RETAIL_DB.RAW.LOAD_SALES_TASK RESUME;"
+          snow sql --connection ci \
+            --filename sql/BR_PREMIUMS.sql
+
+      - name: Deploy Snowflake objects
+        run: |
+          snow sql --connection ci \
+            --filename sql/SLV_CLAIMS.sql
+
+      - name: Deploy Snowflake objects
+        run: |
+          snow sql --connection ci \
+            --filename sql/SLV_CUSTOMERS.sql
+
+      - name: Deploy Snowflake objects
+        run: |
+          snow sql --connection ci \
+            --filename sql/SLV_POLICIES.sql
+
+
+      - name: Deploy Snowflake objects
+        run: |
+          snow sql --connection ci \
+            --filename sql/SLV_PREMIUMS.sql
+
+      - name: Deploy Snowflake objects
+        run: |
+          snow sql --connection ci \
+            --filename sql/DIM_CUSTOMER.sql
+
+
+      - name: Deploy Snowflake objects
+        run: |
+          snow sql --connection ci \
+            --filename sql/DIM_POLICY.sql
+
+            
+      
+         
