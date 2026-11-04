@@ -8,3 +8,15 @@ CREATE OR REPLACE TABLE BRONZE.BR_PREMIUMS (--- Dynamic state --- Fact Table
     PAYMENT_STATUS VARCHAR,
     PAYMENT_MODE VARCHAR
 );
+
+INSERT INTO BRONZE.BR_PREMIUMS VALUES
+('T001','P1001','C001','2024-01-05','18000','18000','Paid','UPI'),
+('T002','P1002','C002','2024-03-16','24000','24000','Paid','Card'),
+('T003','P1003','C003','2024-06-05','12000','10000','Partial','NetBanking'),
+('T004','P1004','C004','2023-01-05','15000','15000','Paid','UPI'),
+('T005','P1005','C005','2024-02-05','30000','30000','Paid','NetBanking'),
+('T006','P1006','C006','2024-04-05','10000','0','Pending','Card'),
+('T007','P1007','C001','2024-07-05','9000','9000','Paid','UPI'),
+('T008','P1008','C003','2024-08-05','21000','15000','Partial','Card'),
+('T009','P1001','C001','2025-01-05','18000','18000','Paid','UPI'),
+('T010','P1002','C002','2025-03-16','24000','12000','Partial','NetBanking');
