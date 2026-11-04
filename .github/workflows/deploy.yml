@@ -42,7 +42,7 @@ jobs:
             --role ACCOUNTADMIN \
             --warehouse COMPUTE_WH \
             --database INSURANCE_DW \
-            
+            --schema BRONZE \
             --no-interactive
  
       - name: Test Snowflake connection
