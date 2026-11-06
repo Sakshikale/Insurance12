@@ -102,6 +102,11 @@ jobs:
           snow sql --connection ci \
             --filename sql/DIM_POLICY.sql
 
+      - name: Deploy Snowflake objects
+        run: |
+          snow sql --connection ci \
+            --filename sql/FACT_PREMIUM.sql
+
             
       
          
